@@ -32,7 +32,6 @@
 * Jsoup 网页抓取
 * iText PDF 生成
 * Knife4j 接口文档
-### 架构图
-![image](https://github.com/user-attachments/assets/c68a3b02-d87a-4069-a6e1-098ca79729a2)
+
 
 
