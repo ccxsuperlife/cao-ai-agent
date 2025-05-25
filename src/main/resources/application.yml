@@ -3,8 +3,25 @@ spring:
     name: cao-ai-agent
   profiles:
     active: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yu_ai_agent
+    username: root
+    password: 123456
+#  mybatis-plus:
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    local-cache-scope: session # 一级缓存
+    cache-enabled: true # 二级缓存
+  global-config:
+    db-config:
+      logic-delete-field: is_delete # 全局逻辑删除字段名
+      logic-delete-value: 1 # 逻辑已删除值。可选，默认值为 1
+      logic-not-delete-value: 0 # 逻辑未删除值。可选，默认值为 0
 server:
-  port: 8123
+  port: 8080
   servlet:
     context-path: /api
 # springdoc-openapi

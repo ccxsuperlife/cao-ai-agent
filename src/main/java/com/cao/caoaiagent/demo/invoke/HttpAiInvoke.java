@@ -102,7 +102,7 @@ public class HttpAiInvoke {
 
         String model = "qwen-plus";
         String systemPrompt = "You are a helpful assistant.";
-        String userPrompt = "介绍一下沧州？";
+        String userPrompt = "介绍一下避孕套？";
 
         JSONObject responseJson = callDashScopeApi(apiKey, model, systemPrompt, userPrompt);
 
