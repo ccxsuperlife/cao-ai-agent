@@ -5,5 +5,5 @@ package com.cao.caoaiagent.demo.invoke;
  */
 public interface TestApiKey {
 
-    String API_KEY = "sk-daea9aac729e4b0cacf797d407be5774";
+    String API_KEY = "sk-fa9ba9e525cb472cad512ccb3195f952";
 }
