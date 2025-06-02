@@ -9,14 +9,9 @@
             <result property="conversationId" column="conversation_id" />
             <result property="messageType" column="message_type" />
             <result property="content" column="content" />
-            <result property="metadata" column="metadata" />
             <result property="createTime" column="create_time" />
             <result property="updateTime" column="update_time" />
             <result property="isDelete" column="is_delete" />
     </resultMap>
 
-    <sql id="Base_Column_List">
-        id,conversation_id,message_type,content,metadata,create_time,
-        update_time,is_delete
-    </sql>
 </mapper>

@@ -9,10 +9,8 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.cao.caoaiagent.enums.MessageTypeEnum;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.ai.chat.messages.Message;
 
 /**
  * 聊天消息表
@@ -46,12 +44,6 @@ public class ChatMessage implements Serializable {
      */
     @TableField(value = "content")
     private String content;
-
-    /**
-     * 元数据
-     */
-    @TableField(value = "metadata")
-    private String metadata;
 
     /**
      * 创建时间

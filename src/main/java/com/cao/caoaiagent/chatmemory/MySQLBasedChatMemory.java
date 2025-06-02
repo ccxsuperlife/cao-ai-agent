@@ -1,10 +1,12 @@
 package com.cao.caoaiagent.chatmemory;
 
 import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.json.JSONUtil;
 import com.cao.caoaiagent.dao.ChatMessageDAO;
 import com.cao.caoaiagent.enums.MessageTypeEnum;
 import com.cao.caoaiagent.model.domain.entity.ChatMessage;
 import com.google.gson.Gson;
+import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.messages.Message;
 import org.springframework.stereotype.Component;
@@ -18,13 +20,11 @@ import java.util.stream.Collectors;
  * 基于MySQL持久化的对话记忆
  */
 @Component
+@RequiredArgsConstructor
 public class MySQLBasedChatMemory implements ChatMemory {
 
     private final ChatMessageDAO chatMessageDAO;
 
-    public MySQLBasedChatMemory(ChatMessageDAO chatMessageDAO) {
-        this.chatMessageDAO = chatMessageDAO;
-    }
 
     @Override
     public void add(String conversationId, List<Message> messages) {
@@ -32,6 +32,8 @@ public class MySQLBasedChatMemory implements ChatMemory {
         List<ChatMessage> conversationMemories = messages.stream().map(message -> {
             String type = message.getMessageType().getValue();
             String content = gson.toJson(message);
+            // 直接将 Message 转为 json ，导致  json 中 message 的属性（textContent）丢失
+//            String content = JSONUtil.toJsonStr(message);
             return ChatMessage.builder()
                     .conversationId(conversationId)
                     .messageType(type)
